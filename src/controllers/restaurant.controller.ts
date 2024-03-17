@@ -44,6 +44,7 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
+    console.log("req.body:", req.body);
     const file = req.file;
 
     if (!file)
@@ -66,7 +67,7 @@ restaurantController.processSignup = async (
     const messsage =
       err instanceof Errors ? err.message : Message.SOEMTHING_WENT_WRONG;
     res.send(
-      `<script> alert("${messsage}); window.location.replace("/admin/login") </script>`
+      `<script> alert("${messsage}"); window.location.replace("/admin/signup") </script>`
     );
   }
 };
