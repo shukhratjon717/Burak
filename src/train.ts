@@ -1,20 +1,25 @@
-interface palindrome {
-  str: string;
+interface Summary {
+  arr: any[];
+  sum: number;
 }
-function palindromeCheck(str: string) {
-  let step1 = str.split("").reverse().join("");
-  if (step1 === str) {
-    return true;
-  } else {
-    return false;
-  }
-}
-console.log(palindromeCheck("helleh"));
+function summer(arr: any[]): Summary {
+  let sum = 0;
 
-interface SquareMaker {
-  Number: number;
-  Square: number;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sum += arr[i];
+    } else if (typeof arr[i] === 'object' && 'son' in arr[i]) {
+      sum += arr[i].son;
+    }
+  }
+  return {
+    arr: arr,
+    sum: sum
+  };
+
 }
+console.log(summer([10, "10", { son: 10 }, true, 35]));
+
 
 /* 
 Traditional FrontEnd Development (FD) => BSSR = SSR (Admin) => EJS
