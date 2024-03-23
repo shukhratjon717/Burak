@@ -1,24 +1,23 @@
-interface Summary {
-  arr: any[];
-  sum: number;
+interface ArrayMaker{
+  str: Object
 }
-function summer(arr: any[]): Summary {
-  let sum = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === 'number') {
-      sum += arr[i];
-    } else if (typeof arr[i] === 'object' && 'son' in arr[i]) {
-      sum += arr[i].son;
-    }
-  }
-  return {
-    arr: arr,
-    sum: sum
-  };
-
+function objectToArray(obj:Record<string, number>): ArrayMaker {
+  // const step1 = Object.keys(obj)
+  // console.log(step1)
+  // const step2 = Object.values(obj)
+  // console.log(step2)
+  const step3 = Object.entries(obj)
+  console.log(step3)
+  return {str: obj}
 }
-console.log(summer([10, "10", { son: 10 }, true, 35]));
+
+console.log(objectToArray({a: 10, b: 20}))
+
+
+
+
+
 
 
 /* 
