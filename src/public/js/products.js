@@ -4,12 +4,22 @@ $(function () {
   $(".product-collection").on("change", () => {
     const selectedValue = $(".product-collection").val();
     if (selectedValue === "DRINK") {
-      $("#product-collection").hide();
       $("#product-volume").show();
+      $("#product-collection").hide();
     } else {
       $("#product-volume").hide();
       $("#product-collection").show();
     }
+  });
+
+  $("#process-btn").on("click", () => {
+    $(".dish-container").slideToggle(500);
+    $("#process-btn").css("display", "none");
+  });
+
+  $("#cancel-btn").on("click", () => {
+    $(".dish-container").slideToggle(100);
+    $("#process-btn").css("display", "flex");
   });
 });
 
