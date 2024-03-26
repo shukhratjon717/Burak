@@ -1,18 +1,18 @@
-interface ArrayMaker{
-  str: Object
+interface propertyMaker{
+  value: boolean
+  key: boolean
 }
 
-function objectToArray(obj:Record<string, number>): ArrayMaker {
-  // const step1 = Object.keys(obj)
-  // console.log(step1)
-  // const step2 = Object.values(obj)
-  // console.log(step2)
-  const step3 = Object.entries(obj)
-  console.log(step3)
-  return {str: obj}
+function propertyFinder(obj: object, str: string): propertyMaker  {
+  if(Object.keys(obj).includes(str)) {
+    return {"key": true, "value": false}
+  } else if(Object.values(obj).includes(str)) {
+    return {"value": true, "key": false}
+  } else {
+    return {'value': false, "key": false}
+  }
 }
-
-console.log(objectToArray({a: 10, b: 20}))
+console.log(propertyFinder({name: "BMW", model: "M3"}, "year"));
 
 
 
