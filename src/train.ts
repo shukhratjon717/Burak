@@ -1,18 +1,32 @@
-interface propertyMaker{
-  value: boolean
-  key: boolean
+interface sumMaker {
+  str: string
+} 
+function summer(str: string): sumMaker {
+  const step1 = Number(str.slice(0,1))
+  const step2 = Number(str.slice(2))
+  const step3 = step1 + step2
+  return {str: step3.toString()}
 }
 
-function propertyFinder(obj: object, str: string): propertyMaker  {
-  if(Object.keys(obj).includes(str)) {
-    return {"key": true, "value": false}
-  } else if(Object.values(obj).includes(str)) {
-    return {"value": true, "key": false}
-  } else {
-    return {'value': false, "key": false}
-  }
-}
-console.log(propertyFinder({name: "BMW", model: "M3"}, "year"));
+console.log(summer("1+3"))
+
+
+
+// interface propertyMaker{
+//   value: boolean
+//   key: boolean
+// }
+
+// function propertyFinder(obj: object, str: string): propertyMaker  {
+//   if(Object.keys(obj).includes(str)) {
+//     return {"key": true, "value": false}
+//   } else if(Object.values(obj).includes(str)) {
+//     return {"value": true, "key": false}
+//   } else {
+//     return {'value': false, "key": false}
+//   }
+// }
+// console.log(propertyFinder({name: "BMW", model: "M3"}, "year"));
 
 
 
